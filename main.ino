@@ -5,11 +5,11 @@
 #include "motor.h"
  
 #define LED   13
-#define PWMR  2
+#define PWMR  2 // Motor Sleep
 #define PWML  3
-#define ENR   4 
+#define ENR   4 // Motor Enable
 #define ENL   5
-#define PHR   6
+#define PHR   6 // Motor Direction
 #define PHL   7
 
 
