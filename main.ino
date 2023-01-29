@@ -1,10 +1,13 @@
 /**
- * Arduino Due 
+ *  Maze Robot Main File for Arduino Due
  */
 
 #include "motor.h"
  
+
 #define LED   13
+
+// Motor Control Pins
 #define PWMR  2 // Motor Sleep
 #define PWML  3
 #define ENR   4 // Motor Enable
@@ -12,15 +15,36 @@
 #define PHR   6 // Motor Direction
 #define PHL   7
 
+// Bump Sensors
+#define BMPS0 42 // All the way Right
+#define BMPS1 44
+#define BMPS2 46
+#define BMPS3 48
+#define BMPS4 50
+#define BMPS5 52 // All the way Left
 
+// Distance Sensors
+#define DISTR A0
+#define DISTC A1
+#define DISTL A2
+
+// Motor Setup
 Motor motor = Motor(PWML, PWMR, ENL, ENR, PHL, PHR);
 
+
 void setup() {
-  // put your setup code here, to run once:
+  // For testing?
   pinMode(LED, OUTPUT);
 
-}
+  // Bump Sensors
+  pinMode(BMPS0, INPUT);
+  pinMode(BMPS1, INPUT);
+  pinMode(BMPS2, INPUT);
+  pinMode(BMPS3, INPUT);
+  pinMode(BMPS4, INPUT);
+  pinMode(BMPS5, INPUT);
 
+}
 
 void loop() {
 
