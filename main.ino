@@ -3,13 +3,10 @@
  */
 
 #include "motor.h"
- 
-
-#define LED   13
 
 // Motor Control Pins
 #define PWMR  2 // Motor Sleep
-#define PWML  3
+#define PWML  9
 #define ENR   4 // Motor Enable
 #define ENL   5
 #define PHR   6 // Motor Direction
@@ -33,8 +30,6 @@ Motor motor = Motor(PWML, PWMR, ENL, ENR, PHL, PHR);
 
 
 void setup() {
-  // For testing?
-  pinMode(LED, OUTPUT);
 
   // Bump Sensors
   pinMode(BMPS0, INPUT);
@@ -49,31 +44,26 @@ void setup() {
 void loop() {
 
   
-  motor.forward(255/4, 255/4); // 25%
+  motor.forward(255/4, 255/4); // 10%
   delay(3000);
   motor.coast();
-  delay(1000);
-    
-  motor.backward(255/4, 255/4); // 25%
-  delay(3000);
-  motor.coast();
-  delay(1000);
+  delay(4000);
 
-  motor.turn_left(255/4, 255/4); // 25%
+  motor.backward(255/4, 255/4); // 10%
   delay(3000);
   motor.coast();
-  delay(1000);
-  
-  motor.turn_right(255/4, 255/4); // 25%
+  delay(4000);
+
+  motor.turn_left(255/4, 255/4); // 10%
   delay(3000);
+  motor.coast();
+  delay(4000);
+
+  motor.turn_right(255/4, 255/4); // 10%
+  delay(3000);
+  motor.coast();
+  delay(4000);
+
   motor.brake();
-  delay(1000);
-
-  
-  // put your main code here, to run repeatedly:
-  digitalWrite(LED, HIGH);
-  delay(1000);  // wait for a second
-  digitalWrite(LED, LOW);
-  delay(1000);  // wait for a second
   
 }

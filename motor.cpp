@@ -66,6 +66,10 @@ void Motor::turn_right(unsigned int left_speed, unsigned int right_speed) {
 
 void Motor::coast(void) {
   
+  digitalWrite(EnL, HIGH);  // Forward/Backward & Coast 
+  digitalWrite(EnR, HIGH);  // Forward/Backward & Coast 
+  digitalWrite(PhL, LOW);   // Forward
+  digitalWrite(PhR, LOW);   // Forward
   analogWrite(PwmL, 0);  
   analogWrite(PwmR, 0); 
 }
